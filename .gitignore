@@ -22,3 +22,5 @@ go.work
 /.idea/GraphQL-Go.iml
 /.idea/modules.xml
 /.idea/vcs.xml
+
+.idea
