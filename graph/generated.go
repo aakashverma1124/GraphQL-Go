@@ -2619,7 +2619,7 @@ func (ec *executionContext) unmarshalInputNewProduct(ctx context.Context, obj in
 			it.Quantity = data
 		case "description":
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("description"))
-			data, err := ec.unmarshalNInt2int(ctx, v)
+			data, err := ec.unmarshalNString2string(ctx, v)
 			if err != nil {
 				return it, err
 			}

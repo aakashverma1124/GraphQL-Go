@@ -8,16 +8,27 @@ import (
 	"context"
 	"fmt"
 	"graphql-go/graph/model"
+	"math/rand"
 )
 
 // CreateProduct is the resolver for the createProduct field.
 func (r *mutationResolver) CreateProduct(ctx context.Context, input model.NewProduct) (*model.Product, error) {
-	panic(fmt.Errorf("not implemented: CreateProduct - createProduct"))
+	var newProduct = &model.Product{
+		ID:          fmt.Sprintf("T%d", rand.Int()),
+		Name:        input.Name,
+		Description: input.Description,
+		Price:       input.Price,
+		Quantity:    input.Quantity,
+	}
+
+	r.products = append(r.products, newProduct)
+
+	return newProduct, nil
 }
 
 // Products is the resolver for the products field.
 func (r *queryResolver) Products(ctx context.Context) ([]*model.Product, error) {
-	panic(fmt.Errorf("not implemented: Products - products"))
+	return r.products, nil
 }
 
 // Mutation returns MutationResolver implementation.

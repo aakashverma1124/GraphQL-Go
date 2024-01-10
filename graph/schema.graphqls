@@ -20,7 +20,7 @@ input NewProduct {
   name: String!
   price: Int!
   quantity: Int!
-  description: Int!
+  description: String!
 }
 
 type Mutation {
